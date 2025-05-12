@@ -1,0 +1,19 @@
+Node? findNode(int data) {
+  if (isEmpty()) {
+    print("Linked List kosong");
+    return null;
+  }
+  
+  Node? current = head;
+  
+  while (current != null) {
+    if (current.nodeValue == data) {
+      print("Node dengan nilai $data ditemukan");
+      return current; 
+    }
+    current = current.next;
+  }
+  
+  print("Node dengan nilai $data tidak ditemukan");
+  return null;
+}
