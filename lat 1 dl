@@ -1,0 +1,27 @@
+void tambahNode_Sebelum(DNode<T> newNode, DNode<T> target) {
+  if (isEmpty()) {
+    print("List is empty, cannot insert before target");
+    return;
+  }
+  if (head!.nodeValue == target.nodeValue) {
+    newNode.next = head;
+    head!.prev = newNode;
+    head = newNode;
+    return;
+  }
+
+  DNode<T>? current = head;
+  
+  while (current != null) {
+    if (current.nodeValue == target.nodeValue) {
+      newNode.next = current;
+      newNode.prev = current.prev;
+      current.prev!.next = newNode;
+      current.prev = newNode;
+      return;
+    }
+    current = current.next;
+  }
+
+  print("Target node not found in the list");
+}
